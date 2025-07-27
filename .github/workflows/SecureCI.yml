@@ -1,0 +1,15 @@
+name: Secure-CI
+on:
+  push:
+    branches: [ "staging" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the Docker container from Docker Compose
+        run: docker-compose up --build
