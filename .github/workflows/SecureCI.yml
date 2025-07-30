@@ -18,3 +18,7 @@ jobs:
         run: |
           wget https://github.com/aquasecurity/trivy/releases/download/v0.64.1/trivy_0.64.1_Linux-64bit.deb
           sudo dpkg -i trivy_0.64.1_Linux-64bit.deb
+          
+      - name: Perform Trivy scan for the owasp juice image
+        run: trivy i bkimminich/juice-shop
+          
