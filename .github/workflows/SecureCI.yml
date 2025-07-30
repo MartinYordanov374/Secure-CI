@@ -13,3 +13,8 @@ jobs:
 
       - name: Build the Docker container from Docker Compose
         run: docker compose up --build -d
+
+      - name: Install Trivy
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.64.0-17-g482d38397/trivy_0.64.0-17-g482d38397_Linux-64bit.deb
+          sudo dpkg -i trivy_0.64.0-17-g482d38397_Linux-64bit.deb
