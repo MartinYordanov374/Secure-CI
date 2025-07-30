@@ -3,14 +3,11 @@ on:
   pull_request:
     branches: [ "main", "staging" ]
 
-jobs:
-  build:
+jobs:     
+  trivy_scan_docker_image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build the Docker container from Docker Compose
-        run: docker compose up --build -d
 
       - name: Install Trivy
         run: |
@@ -19,4 +16,11 @@ jobs:
           
       - name: Perform Trivy scan for the owasp juice image
         run: trivy i bkimminich/juice-shop
-          
+  
+  build_container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the Docker container from Docker Compose
+        run: docker compose up --build -d
