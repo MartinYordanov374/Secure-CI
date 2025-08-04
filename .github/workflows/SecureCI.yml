@@ -11,6 +11,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: bkimminich/juice-shop
+          format: table
         
   trivy_scan_secrets:
     runs-on: ubuntu-latest
@@ -22,7 +23,9 @@ jobs:
         with:
           scan-type: fs
           security-checks: secret
+          format: table
           exit-code: 1
+          
   
   build_container:
     runs-on: ubuntu-latest
