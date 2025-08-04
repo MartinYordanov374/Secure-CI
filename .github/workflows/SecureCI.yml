@@ -7,19 +7,17 @@ jobs:
   trivy_scan_docker_image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Trivy
-        run: |
-          wget https://github.com/aquasecurity/trivy/releases/download/v0.64.1/trivy_0.64.1_Linux-64bit.deb
-          sudo dpkg -i trivy_0.64.1_Linux-64bit.deb
-          
-      - name: Perform Trivy scan for the owasp juice image
-        run: trivy i bkimminich/juice-shop
+      - name: Perform Trivy scan for the OWASP Juice image
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: image
+          image: bkimminich/juice-shop
         
   trivy_scan_secrets:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Run trivy fs scan for secrets in the repository
         uses: aquasecurity/trivy-action@0.28.0
         with:
