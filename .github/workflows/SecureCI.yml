@@ -10,8 +10,7 @@ jobs:
       - name: Perform Trivy scan for the OWASP Juice image
         uses: aquasecurity/trivy-action@0.28.0
         with:
-          scan-type: image
-          image: bkimminich/juice-shop
+          image-ref: bkimminich/juice-shop
         
   trivy_scan_secrets:
     runs-on: ubuntu-latest
