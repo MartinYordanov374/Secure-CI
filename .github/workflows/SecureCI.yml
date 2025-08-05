@@ -23,8 +23,6 @@ jobs:
           
       - name: Run TruffleHog secret scan
         uses: trufflesecurity/trufflehog@main
-        with:
-          extra_args: --results=verified,unknown
           
           
   run_dockle:
