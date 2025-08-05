@@ -18,11 +18,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Run TruffleHog secret scan
       
-      - name: Run trufflehog to scan for secrets in all PRs and pushes to main and staging.
         uses: trufflesecurity/trufflehog@main
         with:
-          extra_args: --results=verified,unknown
+          path: 'main'
+          base: 'development'
+          
           
   run_dockle:
     runs-on: ubuntu-latest
