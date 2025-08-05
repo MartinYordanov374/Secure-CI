@@ -43,7 +43,13 @@ jobs:
         with:
          image-ref: bkimminich/juice-shop
          format: cyclonedx
-          
+         output: 'trivy_sbom.json'
+
+      - name: Save generated SBOM as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: 'trivy_sbom.json'
+          retention_days: 3
 
   build_container_run_passive_owasp_scan:
     runs-on: ubuntu-latest
