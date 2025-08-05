@@ -14,18 +14,15 @@ jobs:
           format: table
           
         
-  trivy_scan_secrets:
+  trufflehog_scan_secrets:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - name: Run trivy fs scan for secrets in the repository
-        uses: aquasecurity/trivy-action@0.28.0
+      - name: Run trufflehog to scan for secrets in all PRs and pushes to main and staging.
+        uses: trufflesecurity/trufflehog@main
         with:
-          scan-type: fs
-          vuln-type: secret
-          format: table
-          exit-code: 1
+          extra_args: --results=verified,unknown
           
   run_dockle:
     runs-on: ubuntu-latest
