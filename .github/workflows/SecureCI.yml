@@ -12,6 +12,7 @@ jobs:
         with:
           image-ref: bkimminich/juice-shop
           format: table
+          
         
   trivy_scan_secrets:
     runs-on: ubuntu-latest
