@@ -12,19 +12,18 @@ jobs:
         with:
           image-ref: bkimminich/juice-shop
           format: table
+          
         
-  trivy_scan_secrets:
+  trufflehog_scan_secrets:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Run trivy fs scan for secrets in the repository
-        uses: aquasecurity/trivy-action@0.28.0
         with:
-          scan-type: fs
-          security-checks: secret
-          format: table
-          exit-code: 1
+          fetch-depth: 0
+          
+      - name: Run TruffleHog secret scan
+        uses: trufflesecurity/trufflehog@main
+          
           
   run_dockle:
     runs-on: ubuntu-latest
