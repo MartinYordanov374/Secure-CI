@@ -26,7 +26,15 @@ jobs:
           format: table
           exit-code: 1
           
-  
+  run_dockle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Dockle to scan Docker image
+        uses: goodwithtech/dockle-action@main
+        with:
+          image: bkimminich/juice-shop
+          format: list
+
   build_container_run_passive_owasp_scan:
     runs-on: ubuntu-latest
     needs: trivy_scan_docker_image
