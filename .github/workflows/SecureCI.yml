@@ -22,7 +22,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           scan-type: fs
-          security-checks: secret
+          vuln-type: secret
           format: table
           exit-code: 1
           
