@@ -22,8 +22,7 @@ jobs:
       
         uses: trufflesecurity/trufflehog@main
         with:
-          path: 'main'
-          base: 'development'
+          path: '.'
           
           
   run_dockle:
