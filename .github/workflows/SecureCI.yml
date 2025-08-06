@@ -42,6 +42,7 @@ jobs:
         with:
          image-ref: bkimminich/juice-shop
          format: cyclonedx
+         scanners: vuln
          output: 'trivy_sbom.json'
 
       - name: Save generated SBOM as a workflow artifact
