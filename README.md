@@ -56,4 +56,4 @@ The **Secure-CI** pipeline runs automatically on **pull requests** to the `
 
 Feel free to **use this workflow** to secure your own Dockerized projects. 🙂
 
-For a **detailed explanation of the implementation, tools, and DevSecOps principles**, check out the Medium article I wrote on it:  https://medium.com/@martin.yordanov.official/devsecops-building-a-secure-ci-pipeline-7915f040ca94
+For a **detailed explanation of the implementation, tools, and DevSecOps principles**, check out the Medium article I wrote on here:  https://medium.com/@martin.yordanov.official/devsecops-building-a-secure-ci-pipeline-7915f040ca94
