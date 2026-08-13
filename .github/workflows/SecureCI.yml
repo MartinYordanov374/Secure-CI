@@ -59,8 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Pull juice shop image and build container 
-        run: |
-          docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop
+        run: docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop
 
       - name: Give the juice shop a head start
         run: sleep 30
