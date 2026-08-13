@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Perform Trivy scan for the OWASP Juice image
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@latest
         with:
           image-ref: bkimminich/juice-shop
           format: table
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use trivy to generate an SBOM
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@latest
         with:
          image-ref: bkimminich/juice-shop
          format: cyclonedx
