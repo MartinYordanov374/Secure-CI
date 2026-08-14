@@ -69,3 +69,17 @@ The **Secure-CI** pipeline runs automatically on **pull requests** to the `
 
 
 ## Pipeline Testing and Results
+### Trivy Docker Image Scan
+<img width="1400" height="950" alt="Trivy_Scan" src="https://github.com/user-attachments/assets/a0e83ddd-e18f-4a31-8917-36f495a383c7" />
+
+### Trufflehog Secrets Scan
+<img width="1538" height="816" alt="Screenshot From 2026-08-14 17-21-09" src="https://github.com/user-attachments/assets/a4a99e06-a0c7-4296-80a8-0435e20b40d3" />
+
+### Dockle Scan
+<img width="2036" height="994" alt="DockleScan" src="https://github.com/user-attachments/assets/d209514b-a3e5-4603-a943-7423f2419ad0" />
+
+### OWASP ZAP Passive Scan Results
+<img width="1913" height="215" alt="Screenshot From 2026-08-14 17-29-39" src="https://github.com/user-attachments/assets/9623faa0-3068-4c87-92ba-9495820e02f3" />
+
+<img width="1440" height="371" alt="Screenshot From 2026-08-14 17-27-51" src="https://github.com/user-attachments/assets/c6834386-7e5c-4702-a014-88c95d1912ad" />
+
