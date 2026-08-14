@@ -45,7 +45,7 @@ The pipeline makes use of the following tools:
 
 ## Workflow 
 
-<img width="829" height="340" alt="Screenshot 2026-08-14 at 18 31 51" src="https://github.com/user-attachments/assets/7511d29b-6554-423b-ab2d-5d80bfd772fd" />
+<img width="1315" height="484" alt="Untitled Diagram-2" src="https://github.com/user-attachments/assets/2964be91-24c9-4c64-b0af-1c609607d37c" />
 
 The **Secure-CI** pipeline runs automatically on **pull requests** to the `main` and `staging` branches. It performs **five security-focused jobs:
 
