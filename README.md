@@ -69,17 +69,40 @@ The **Secure-CI** pipeline runs automatically on **pull requests** to the `
 
 
 ## Pipeline Testing and Results
+Besides the automated testing that the security tools listed below performed, I also included a fake AWS key from Canarytokens to test whether Trufflehog will catch them.
+
 ### Trivy Docker Image Scan
+Trivy identified a large amount of vulnerabilities with their corresponding CVE and Severity. The image below shows a tiny part of the output.
+
 <img width="1400" height="950" alt="Trivy_Scan" src="https://github.com/user-attachments/assets/a0e83ddd-e18f-4a31-8917-36f495a383c7" />
 
+It is interesting to note that a majority of the vulnerabilities are within the dependencies of the scanned Docker image. Thus, there is not much that the developers using the image can do about that, other than update the dependencies where possible and applicable.
+
 ### Trufflehog Secrets Scan
+Trufflehog successfully identified the canarytoken AWS key that I put in the repository, as shown below. As a result, the Trufflehog job failed.
+
 <img width="1538" height="816" alt="Screenshot From 2026-08-14 17-21-09" src="https://github.com/user-attachments/assets/a4a99e06-a0c7-4296-80a8-0435e20b40d3" />
 
 ### Dockle Scan
+Dockle identified a couple of interesting issues with the file as shown below.
+
 <img width="2036" height="994" alt="DockleScan" src="https://github.com/user-attachments/assets/d209514b-a3e5-4603-a943-7423f2419ad0" />
 
+Careful commentary about the findings is necessary. First and foremost, the FATAL issue is a false positive. None of the variables that Dockle detected are of sensitive nature.
+
+Second, Dockle advises us to avoid using the *latest* image tag. This is smart because zero-day vulnerabilities could be introduced to the latest version of a Docker image, and it could take quite a while until they are detected and patched. This is why it is important to run Trivy in addition to such scans. Besides the obvious security issues that the *latest* tag introduces, it also opens the door to possible version mismatches and deployment issues.
+
+The rest of the warnings that Dockle gives us are also important and follow best practices, but they are not as central to this project's goals as the outlined ones. Thus, no commentary is left for them.
+
 ### OWASP ZAP Passive Scan Results
-<img width="1913" height="215" alt="Screenshot From 2026-08-14 17-29-39" src="https://github.com/user-attachments/assets/9623faa0-3068-4c87-92ba-9495820e02f3" />
+The OWASP ZAP passive scan results in an artifact object, which includes the same data in three formats - Markdown, HTML, and JSON. The data concerns the issues that were identified and possible remediations. The image below shows the alerts that were raised during the scan, along with their risk level.
 
 <img width="1440" height="371" alt="Screenshot From 2026-08-14 17-27-51" src="https://github.com/user-attachments/assets/c6834386-7e5c-4702-a014-88c95d1912ad" />
+
+In addition to the alerts summary, there are also detailed alerts with solutions and references given, as shown in the two images below.
+
+<img width="1420" height="262" alt="Screenshot 2026-08-15 at 1 09 45" src="https://github.com/user-attachments/assets/207198c1-e2d9-4574-a9b1-7af2e17772fc" />
+<img width="1422" height="161" alt="Screenshot 2026-08-15 at 1 10 02" src="https://github.com/user-attachments/assets/85656856-ce59-46e5-b9a7-9400bf225854" />
+
+
 
