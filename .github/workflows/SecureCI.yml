@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Perform Trivy scan for the OWASP Juice image
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: bkimminich/juice-shop
           format: table
@@ -23,7 +23,9 @@ jobs:
           
       - name: Run TruffleHog secret scan
         uses: trufflesecurity/trufflehog@main
-          
+        with:
+          extra_args: --results=verified,unverified,unknown
+
           
   run_dockle:
     runs-on: ubuntu-latest
@@ -38,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use trivy to generate an SBOM
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
          image-ref: bkimminich/juice-shop
          format: cyclonedx
@@ -55,8 +57,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build the Docker container from Docker Compose
-        run: docker compose up --build -d
+      - name: Pull juice shop image and build container 
+        run: docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop
+
+      - name: Give the juice shop a head start
+        run: sleep 30
         
       - name: Run OWASP ZAP base scan
         uses:  zaproxy/action-baseline@v0.14.0
