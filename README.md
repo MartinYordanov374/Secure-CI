@@ -13,7 +13,8 @@ For a deep dive into the project, <a href='https://medium.com/@martin.yordanov.o
 5. [Pipeline Testing](#Pipeline-Testing)
 6. [Results](#Results)
 
-## The motivation behind the 
+## The motivation behind the project
+No learning journey is linear, and this project is not an exception. While exploring cybersecurity, and in particular security engineering, I came across DevSecOps and security pipelines. I was already aware of DevOps principles, but I had not paid much attention to Dev**Sec**Ops, so this project was the perfect way to gain hands-on experience in DevSecOps practices and building security pipelines.
 
 ## What I strived to achieve and learn through this project
 The **main objective** was to gain hands-on experience in **building a DevSecOps pipeline**, applying **shift-left security practices**, and automating **image and code security checks**.
