@@ -104,5 +104,6 @@ In addition to the alerts summary, there are also detailed alerts with solutions
 <img width="1420" height="262" alt="Screenshot 2026-08-15 at 1 09 45" src="https://github.com/user-attachments/assets/207198c1-e2d9-4574-a9b1-7af2e17772fc" />
 <img width="1422" height="161" alt="Screenshot 2026-08-15 at 1 10 02" src="https://github.com/user-attachments/assets/85656856-ce59-46e5-b9a7-9400bf225854" />
 
-
+### SBOM
+Trivy also generated an SBOM, which I could not include here due to its vast size. An SBOM contains information about an application's dependencies, which allows us to perform supply-chain risk analysis. That way, we can identify which components of the application are vulnerable and take steps to mitigate them.
 
