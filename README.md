@@ -10,8 +10,7 @@ For a deep dive into the project, <a href='https://medium.com/@martin.yordanov.o
 2. [What I strived to achieve and learn through this project](#what-i-strived-to-achieve-and-learn-through-this-project)
 3. [Tech Stack](#tech-stack)
 4. [Workflow](#workflow)
-5. [Pipeline Testing](#Pipeline-Testing)
-6. [Results](#Results)
+5. [Pipeline Testing and Results](#Pipeline-Testing-And-Results)
 
 ## The motivation behind the project
 No learning journey is linear, and this project is not an exception. While exploring cybersecurity, and in particular security engineering, I came across DevSecOps and security pipelines. 
@@ -44,14 +43,13 @@ The pipeline makes use of the following tools:
 
 
 ## Workflow 
+<img width="699" height="491" alt="Screenshot 2026-08-14 at 20 03 29" src="https://github.com/user-attachments/assets/ed0dcc04-3eb1-45d7-8755-df203f25a029" />
 
-<img width="1315" height="484" alt="Untitled Diagram-2" src="https://github.com/user-attachments/assets/2964be91-24c9-4c64-b0af-1c609607d37c" />
-
-The **Secure-CI** pipeline runs automatically on **pull requests** to the `main` and `staging` branches. It performs **five security-focused jobs:
+The **Secure-CI** pipeline runs automatically on **pull requests** to the `main` and `staging` branches. It performs five security-focused jobs:
 
 1. **Docker Image Vulnerability Scan (Trivy)**
     
-    - Scans the `bkimminich/juice-shop` image for known vulnerabilities.
+    - Scans the `bkimminich/juice-shop` image for known vulnerabilities and presents them in table format. 
         
 2. **Secret Scanning (Trufflehog)**
     
@@ -69,5 +67,5 @@ The **Secure-CI** pipeline runs automatically on **pull requests** to the `
     
     - Builds and runs the Dockerized app, then performs a **passive vulnerability scan**.
 
-## Pipeline Testing
-## Results
+
+## Pipeline Testing and Results
