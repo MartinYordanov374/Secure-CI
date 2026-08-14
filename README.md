@@ -1,22 +1,32 @@
-
-## Overview
-
+# DevSecOps Secure CI Pipeline
 This project demonstrates a **secure CI pipeline** for Dockerized applications using **DevSecOps principles**. The pipeline integrates **security scanning, secret detection, and compliance checks** directly into the CI workflow to prevent vulnerabilities from reaching production-level code.
 
+The pipeline was tested against the **OWASP Juice Shop**, a deliberately vulnerable web application, making it an excellent environment for experimenting **real-world vulnerability scanning and secret detection** in a safe context.
+
+For a deep dive into the project, <a href='https://medium.com/@martin.yordanov.official/devsecops-building-a-secure-ci-pipeline-7915f040ca94'>check out my Medium article.</a>
+## Table of Contents
+
+1. [The motivation behind the project](#the-motivation-behind-the-project)
+2. [What I strived to achieve and learn through this project](#what-i-strived-to-achieve-and-learn-through-this-project)
+3. [Tech Stack](#tech-stack)
+4. [Workflow](#workflow)
+5. [Pipeline Testing](#Pipeline-Testing)
+6. [Results](#Results)
+
+## The motivation behind the 
+
+## What I strived to achieve and learn through this project
 The **main objective** was to gain hands-on experience in **building a DevSecOps pipeline**, applying **shift-left security practices**, and automating **image and code security checks**.
 
-The pipeline was tested using the **OWASP Juice Shop**, a deliberately vulnerable web application, making it an excellent environment for experimenting **real-world vulnerability scanning and secret detection** in a safe context.
-
-By completing this project, I learned how to:
-
+Through this project I learned how to:
 - Embed **security into CI pipelines** to reduce risks early.
     
-- Detect **hardcoded secrets, misconfigurations, and vulnerable packages**.
+- Detect **hardcoded secrets, misconfigurations, and vulnerable packages** within the entire repository.
     
-- Generate a **Software Bill of Materials (SBOM)** for compliance and supply chain visibility.
+- Generate a **Software Bill of Materials (SBOM)** for compliance purposes as well as supply chain visibility.
 
-## 🛠️ Technologies Used
-
+## Tech Stack
+The pipeline makes use of the following tools:
 - **[Trivy](https://trivy.dev/latest/)** – Vulnerability and misconfiguration scanner
     
 - **[Dockle](https://github.com/goodwithtech/dockle)** – Docker image configuration linting
@@ -28,6 +38,7 @@ By completing this project, I learned how to:
 - **Docker & Docker Compose** – Containerization and orchestration
     
 - **GitHub Actions** – CI automation
+
 
 ## Workflow 
 
@@ -41,7 +52,7 @@ The **Secure-CI** pipeline runs automatically on **pull requests** to the `
         
 2. **Secret Scanning (Trufflehog)**
     
-    - Detects any exposed credentials, tokens, or API keys in the repository’s commit history regardless of branches.
+    - Detects any exposed credentials, tokens, or API keys in the entire repository.
         
 3. **Docker Image Configuration Check (Dockle)**
     
@@ -53,9 +64,7 @@ The **Secure-CI** pipeline runs automatically on **pull requests** to the `
         
 5. **Passive Web Application Scan (OWASP ZAP)**
     
-    - Builds and runs the Dockerized app, then performs a **passive vulnerability scan** on HTTP traffic without actively interacting with the app.
+    - Builds and runs the Dockerized app, then performs a **passive vulnerability scan**.
 
-
-Feel free to **use this workflow** to secure your own Dockerized projects. 🙂
-
-For a **detailed explanation of the implementation, tools, and DevSecOps principles**, check out the Medium article I wrote on here:  https://medium.com/@martin.yordanov.official/devsecops-building-a-secure-ci-pipeline-7915f040ca94
+## Pipeline Testing
+## Results
